@@ -26,6 +26,7 @@
       h1 {
         font-size: 3rem; 
         text-align: center;
+        font-weight: bold;
       }
 
       label {
@@ -37,13 +38,13 @@
         font-family: 'Inter', sans-serif;
         color: black;
         min-width: 300px;
-        max-width: 800px;
+        max-width: 900px;
         padding: 20px;
         margin: auto;
         margin-bottom: 30px;
         background-color: rgba(189, 189, 189, 0.445);
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
-        border-radius: 0px 0px 10px 10px;
+        border-radius: 5px 5px 10px 10px;
         margin-top: 100px;
       }
 
@@ -88,28 +89,78 @@
         justify-content: center; /* Centraliza verticalmente */
       }
 
+
+      @media (min-width: 768px) {
+        h1 {
+          font-size: 3rem;
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: bold;
+        }
+        table {
+          width: 100%;
+        }
+
+        td button {
+          margin-right: 10px;
+        }
+      }
+
+      /* Estilos para telas menores (por exemplo, smartphones) */
+      @media screen and (max-width: 767px) {
+
+        h1 {
+          font-size: 2em;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        table {
+          width: 100%;
+          font-size: 0.9rem;
+        }
+
+        th, td {
+          text-align: center;
+        }
+
+        .btn {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        label {
+          font-size: 1.3em;
+          font-weight: bold;
+        }
+
+        main {
+          max-width: 90%; /* Reduz a largura máxima */
+          margin-top: 50px; /* Ajusta a margem superior */
+        }
+      }
+
+
     </style>
 </head>
 <body>
   <!-- Navbar bootstrap --> 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="font-size: 1.8em">Minha agenda!</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="{{ route('agendas.create')}}">Cadastrar</a>
-            </li> &nbsp;&nbsp;
-            <li class="nav-item">
-              <a href="{{ route('agendas.index')}}">Listar</a>
-            </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-size: 1.5em">Agenda</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('agendas.create')}}">Cadastrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('agendas.index')}}">Listar</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
     
     {{$slot}}
 
