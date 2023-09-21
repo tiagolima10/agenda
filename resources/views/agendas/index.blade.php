@@ -7,11 +7,11 @@
         .modal {
             display: none;
             position: fixed;
-            top: 50%; /* Centraliza verticalmente */
-            left: 50%; /* Centraliza horizontalmente */
+            top: 50%;
+            left: 50%; 
             transform: translate(-50%, -50%); /* Centraliza o modal corretamente */
-            width: 400px; /* Largura pré-definida */
-            height: 200px; /* Altura pré-definida */
+            width: 400px; 
+            height: 200px;
             background-color: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
@@ -41,6 +41,10 @@
             width: 80%;
             height: auto;
         }
+
+        table {
+            font-size: 80%;
+        }
 }
     </style>
 
@@ -64,17 +68,19 @@
                     @foreach ($agendas as $agenda)
                         <tr>
                             <td style="text-align: center; vertical-align: middle;">{{ $agenda->id }}</td>
-                            <td style="text-align: center; vertical-align: middle;">{{ $agenda->name }}</td>
+                            <td style="text-align: center; vertical-align: middle;">
+                                <span title="{{ $agenda->name }}">{{ Str::limit($agenda->name, 8) }}</span>
+                            </td>
                             <td style="text-align: center; vertical-align: middle;">{{ $agenda->phone }}</td>
                             <td style="display: flex; flex-direction: row; justify-content: center;">
 
-                                <!-- Botão para Visualizar (apenas o emoji) -->
+                                <!-- Botão para Visualizar -->
                                 <button type="button" class="btn btn-success" title="Visualizar">
                                     <a href="{{ route('agendas.show', $agenda->id)}}" style="text-decoration: none">&#x1F441;</a>
                                 </button>
 
 
-                                <!-- Botão para Editar (apenas o emoji) -->
+                                <!-- Botão para Editar -->
                                 <button type="button" class="btn btn-light" title="Editar">
                                     <a href="{{ route('agendas.edit', $agenda->id)}}" style="text-decoration: none">&#x270F;</a>
                                 </button>
@@ -83,7 +89,7 @@
                                 <form action="{{ route('agendas.destroy', $agenda->id)}}" method="POST" id="delete-form">
                                     @csrf
                                     @method('DELETE')
-                                    <!-- Botão para Excluir (apenas o emoji) -->
+                                    <!-- Botão para Excluir -->
                                     <button type="button" class="btn btn-danger" style="color: black; text-decoration: none; font-weight: bold;" title="Excluir" onclick="confirmDelete()">&#x1F5D1;</button>
                                 </form>
 
@@ -109,17 +115,17 @@
     const cancelButton = document.getElementById('cancelDelete');
 
     confirmButton.addEventListener('click', function () {
-        // Se o usuário confirmar, envie o formulário de exclusão
+        // Excluir
         document.getElementById('delete-form').submit();
     });
 
     cancelButton.addEventListener('click', function () {
-        // Se o usuário cancelar, feche o modal
+        // Cancelar
         modal.style.display = 'none';
     });
 
     function confirmDelete() {
-        // Exibe o modal quando o botão Excluir é clicado
+        // Mostrar o Modal
         modal.style.display = 'block';
     }
 
