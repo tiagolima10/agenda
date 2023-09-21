@@ -69,7 +69,13 @@
                         <tr>
                             <td style="text-align: center; vertical-align: middle;">{{ $agenda->id }}</td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <span title="{{ $agenda->name }}">{{ Str::limit($agenda->name, 8) }}</span>
+                                <?php
+                                // Divide a string do nome usando o espaço em branco como delimitador
+                                $nomeDividido = strtok($agenda->name, ' ');
+                            
+                                // Exibe apenas a parte inicial do nome (até o primeiro espaço em branco)
+                                echo htmlentities($nomeDividido);
+                                ?>
                             </td>
                             <td style="text-align: center; vertical-align: middle;">{{ $agenda->phone }}</td>
                             <td style="display: flex; flex-direction: row; justify-content: center;">

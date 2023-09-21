@@ -3,7 +3,7 @@
         /* Estilo para quebrar texto a cada 15 caracteres */
         label.break-lines {
             overflow-wrap: break-word;
-            max-width: 16ch;
+            max-width: 20ch;
             display: inline-block;
         }
     </style>
