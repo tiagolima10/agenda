@@ -1,6 +1,6 @@
 <x-layout title='Visualizar Agenda'>
     <style>
-        /* Estilo para quebrar texto a cada 15 caracteres */
+        /* Quebrar texto a cada 20 caracteres */
         label.break-lines {
             overflow-wrap: break-word;
             max-width: 20ch;
