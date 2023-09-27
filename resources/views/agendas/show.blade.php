@@ -7,6 +7,7 @@
             display: inline-block;
         }
     </style>
+    
     <main>
         <!-- Tela de visualização dos contatos -->
         <h1 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold">Contato</h1>

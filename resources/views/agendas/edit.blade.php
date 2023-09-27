@@ -33,7 +33,8 @@
         const phoneInput = document.getElementById('phone');
 
         phoneInput.addEventListener('input', function (e) {
-        const cleanedValue = e.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+        const cleanedValue = e.target.value.replace(/\D/g, ''); 
+        // Remove caracteres não numéricos
 
         let formattedValue = '';
 

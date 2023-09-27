@@ -116,7 +116,7 @@
     </main>
     
     <script>
-        const modal = document.getElementById('myModal');
+    const modal = document.getElementById('myModal');
     const confirmButton = document.getElementById('confirmDelete');
     const cancelButton = document.getElementById('cancelDelete');
 
